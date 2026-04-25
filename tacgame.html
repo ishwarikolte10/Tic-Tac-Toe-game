@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Tic Tac Toe</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="app">
+  <div class="card">
+
+    <h1>Tic Tac Toe</h1>
+    <p class="subtitle">Play with style ✨</p>
+
+    <!-- Mode -->
+    <div class="mode">
+      <button id="pvpBtn" class="active">Player vs Player</button>
+      <button id="aiBtn">Player vs AI</button>
+    </div>
+
+    <!-- Turn -->
+    <div class="turn">
+      <span id="turnX" class="active">X</span>
+      <span class="divider"></span>
+      <span id="turnO">O</span>
+    </div>
+
+    <!-- Board Wrapper -->
+    <div class="board-wrapper">
+      <div id="board" class="board"></div>
+      <div id="winLine"></div>
+    </div>
+
+    <!-- Score -->
+    <div class="score">
+      <div>
+        <h2 id="xScore">0</h2>
+        <p>Player X</p>
+      </div>
+      <div>
+        <h2 id="oScore">0</h2>
+        <p>Player O</p>
+      </div>
+    </div>
+
+    <!-- Reset -->
+    <button id="resetBtn" class="reset">Reset Game</button>
+
+  </div>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup hidden">
+  <div class="popup-card">
+    <h2 id="resultText"></h2>
+    <button onclick="resetGame()">Play Again</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

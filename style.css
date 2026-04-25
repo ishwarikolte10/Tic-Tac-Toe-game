@@ -1,0 +1,231 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg,#fdfbfb,#ebedee);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* App */
+.app {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+}
+
+/* Card */
+.card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+/* Title */
+h1 {
+  margin: 0;
+  font-weight: 600;
+  background: linear-gradient(90deg,#ff7eb3,#65d6ce);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Mode */
+.mode {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.mode button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: #f1f5f9;
+}
+
+.mode .active {
+  background: linear-gradient(90deg,#ff7eb3,#65d6ce);
+  color: white;
+}
+
+/* Turn */
+.turn {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.turn span {
+  padding: 8px 16px;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+
+.turn .active {
+  opacity: 1;
+  background: #f1f5f9;
+}
+
+/* Board */
+.board-wrapper {
+  position: relative;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.cell {
+  aspect-ratio: 1;
+  background: white;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: 0.25s;
+}
+
+.cell:hover {
+  transform: translateY(-3px);
+}
+
+.cell:active {
+  transform: scale(0.95);
+}
+
+.cell.x { color: #ff7eb3; }
+.cell.o { color: #65d6ce; }
+
+.winner {
+  background: linear-gradient(135deg,#ffecd2,#fcb69f);
+}
+
+/* WIN LINE */
+#winLine {
+  position: absolute;
+  height: 6px;
+  background: linear-gradient(90deg,#ff7eb3,#65d6ce);
+  border-radius: 10px;
+
+  transform-origin: left center;
+  transform: scaleX(0);
+
+  transition: transform 0.4s ease;
+  pointer-events: none;
+}
+
+/* Score */
+.score {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Button */
+.reset {
+  width: 100%;
+  padding: 12px;
+  border-radius: 15px;
+  border: none;
+  background: linear-gradient(90deg,#ff7eb3,#ff9a44);
+  color: white;
+  cursor: pointer;
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.popup-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+
+.cell {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cell:active {
+  transform: scale(0.9);
+}
+
+/* Smooth pop when placed */
+.cell.x, .cell.o {
+  animation: popIn 0.25s ease;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+
+.board {
+  animation: fadeUp 0.5s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.winner {
+  animation: winnerGlow 1s infinite alternate;
+}
+
+@keyframes winnerGlow {
+  from {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 126, 179, 0.4);
+  }
+  to {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(255, 126, 179, 0.6);
+  }
+}
+
